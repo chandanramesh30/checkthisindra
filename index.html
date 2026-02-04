@@ -2,120 +2,113 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Be My Valentine 💖</title>
-
+<title>Indra Will You Be My Valentine 💖</title>
 <style>
-body {
-    margin: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Segoe UI', sans-serif;
-    overflow: hidden;
-}
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Segoe UI', sans-serif;
+        overflow: hidden;
+    }
 
-.card {
-    background: white;
-    padding: 50px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    width: 350px;
-}
+    .card {
+        background: white;
+        padding: 50px;
+        border-radius: 20px;
+        text-align: left;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
 
-h1 {
-    color: #ff4081;
-    font-size: 32px;
-    margin-bottom: 20px;
-}
+    h1 {
+        color: #ff4081;
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
 
-.gif {
-    width: 220px;
-    margin-bottom: 20px;
-}
+    button {
+        font-size: 20px;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
-.buttons {
-    position: relative;
-    width: 300px;
-    height: 80px;
-    margin: auto;
-}
+    #yes {
+        background: #ff4081;
+        color: white;
+        margin-left: 170px;
+        position: relative;
+        left: 30px;   /* moves Yes button 30px to the right */
+    }
 
-button {
-    font-size: 20px;
-    padding: 12px 28px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: 0.3s;
-}
+    #yes:hover {
+        transform: scale(1.1);
+    }
 
-#yes {
-    background: #ff4081;
-    color: white;
-    position: absolute;
-    left: 20px;
-}
+    #no {
+        background: #ddd;
+        color: #333;
+        position: absolute;
+    }
 
-#yes:hover {
-    transform: scale(1.1);
-}
+    .hearts {
+        position: fixed;
+        bottom: -10px;
+        font-size: 24px;
+        animation: floatUp 4s linear infinite;
+    }
 
-#no {
-    background: #ddd;
-    color: #333;
-    position: absolute;
-    left: 160px;
-}
+    @keyframes floatUp {
+        from {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateY(-100vh);
+            opacity: 0;
+        }
+    }
 </style>
 </head>
 
 <body>
 
-<!-- Background Music -->
-<audio autoplay loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-</audio>
-
 <div class="card">
-    <img class="gif" src="https://media.giphy.com/media/l4FGpP4lxGGgK5CBW/giphy.gif">
-    <h1>Will you be my Valentine? 💕</h1>
-
-    <div class="buttons">
-        <button id="yes" onclick="sayYes()">Yes 😍</button>
-        <button id="no" onmouseover="moveNo()">No 😜</button>
-    </div>
+    <h1>Indra, will you be my valentine? 💕🥹</h1>
+    <button id="yes" onclick="sayYes()">Yes 🥳</button>
+    <button id="no" onmouseover="moveNo()">No 😏</button>
 </div>
 
 <script>
 function sayYes() {
     document.body.innerHTML = `
-    <div style="
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        height:100vh;
-        flex-direction:column;
-        background: linear-gradient(135deg, #ff758c, #ff7eb3);
-        color:white;
-        font-family: Segoe UI;
-        text-align:center;">
-        
-        <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" style="width:300px;">
-        <h1 style="font-size:50px;">Yaaay! 💖🥰</h1>
-        <h2>You just made me the happiest person 😘</h2>
-    </div>`;
+        <div style="
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            height:100vh;
+            flex-direction:column;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color:white;
+            font-family: Segoe UI;">
+            <h1 style="font-size:50px;">Yaaay! 💖🥰</h1>
+            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2FkMm16NGJmMmJ4Znljd21nMXpyZjRjaWV1ZDd2dzl5Mnd1dzl0eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1ym5LJ17vp77BL8X5O/giphy.gif"
+                 alt="Panda Celebration"
+                 style="width:300px; margin-top:20px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.4);">
+            <h2>You just made me the happiest person 🥳</h2>
+        </div>
+    `;
 }
 
 function moveNo() {
     const no = document.getElementById("no");
-    const box = document.querySelector(".buttons");
-
-    const x = Math.random() * (box.offsetWidth - no.offsetWidth);
-    const y = Math.random() * (box.offsetHeight - no.offsetHeight);
-
+    const x = Math.random() * (window.innerWidth - no.offsetWidth);
+    const y = Math.random() * (window.innerHeight - no.offsetHeight);
     no.style.left = x + "px";
     no.style.top = y + "px";
 }
