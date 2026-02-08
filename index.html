@@ -3,6 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <title>Indra Will You Be My Valentine 💖</title>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+(function(){
+   emailjs.init("dP_faB-ay9PuGUHLc");
+})();
+</script>
+
+<style>
+.sparkle {
+    position: fixed;
+    top: 100%;
+    font-size: 24px;
+    animation: sparkleFloat 4s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes sparkleFloat {
+    from {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+    }
+}
+</style>
+
 <style>
     body {
         margin: 0;
@@ -74,7 +102,10 @@
         }
     }
 </style>
+
 </head>
+
+
 
 <body>
 
@@ -86,6 +117,12 @@
 
 <script>
 function sayYes() {
+
+    // 💌 Send email
+    emailjs.send("service_p4h5qed", "template_v97y6i3", {
+        time: new Date().toLocaleString()
+    });
+
     document.body.innerHTML = `
         <div style="
             display:flex;
@@ -98,11 +135,13 @@ function sayYes() {
             font-family: Segoe UI;">
             <h1 style="font-size:50px;">Yaaay! Innen Aytalla 💖🥰</h1>
             <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2FkMm16NGJmMmJ4Znljd21nMXpyZjRjaWV1ZDd2dzl5Mnd1dzl0eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1ym5LJ17vp77BL8X5O/giphy.gif"
-                 alt="Panda Celebration"
                  style="width:300px; margin-top:20px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.4);">
             <h2>Konegu Best Decision Life Alli Congratulations 🥳</h2>
         </div>
     `;
+
+    // ✨ Sparkles start
+    setInterval(createSparkle, 200);
 }
 
 function moveNo() {
@@ -112,7 +151,22 @@ function moveNo() {
     no.style.left = x + "px";
     no.style.top = y + "px";
 }
+
+// ✨ Sparkle generator
+function createSparkle() {
+    const sparkle = document.createElement("div");
+    sparkle.className = "sparkle";
+    sparkle.innerHTML = "✨";
+    sparkle.style.left = Math.random() * window.innerWidth + "px";
+    sparkle.style.fontSize = (20 + Math.random() * 20) + "px";
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => {
+        sparkle.remove();
+    }, 4000);
+}
 </script>
+
 
 </body>
 </html>
